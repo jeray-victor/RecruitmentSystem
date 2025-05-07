@@ -19,7 +19,7 @@ public class RecruitmentSystemGUI extends JFrame {
 
         setLayout(new BorderLayout());
 
-        //pmain panel
+        //main panel
         JPanel formPanel = new JPanel(new GridBagLayout());
         formPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Add padding around the form
         GridBagConstraints gbc = new GridBagConstraints();
@@ -90,9 +90,13 @@ public class RecruitmentSystemGUI extends JFrame {
         joinedCheckBox = new JCheckBox();
         formPanel.add(joinedCheckBox, createGbc(1, row++));
 
+
         //adds buttons to the bottom of the panel
-        JPanel buttonPanel = new JPanel(new GridLayout(2, 4, 10, 10));
-        buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add padding
+        buttonPanel.setBackground(Color.LIGHT_GRAY); // Make it visible for debugging
+
+        // Create buttons
         JButton addFullTimeButton = new JButton("Add Full Time Staff");
         JButton addPartTimeButton = new JButton("Add Part Time Staff");
         JButton displayStaffButton = new JButton("Display Staff Details");
@@ -101,6 +105,7 @@ public class RecruitmentSystemGUI extends JFrame {
         JButton terminateButton = new JButton("Terminate Staff");
         JButton clearButton = new JButton("Clear");
 
+        // Add all buttons to panel
         buttonPanel.add(addFullTimeButton);
         buttonPanel.add(addPartTimeButton);
         buttonPanel.add(displayStaffButton);
@@ -109,8 +114,14 @@ public class RecruitmentSystemGUI extends JFrame {
         buttonPanel.add(terminateButton);
         buttonPanel.add(clearButton);
 
+        // Use a scroll pane in case the buttons don't all fit
+        JScrollPane scrollPane = new JScrollPane(buttonPanel);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+
+        // Add the scroll pane to the frame
         add(formPanel, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.SOUTH);
+        add(scrollPane, BorderLayout.SOUTH);
 
         //action listeners
         addFullTimeButton.addActionListener(new ActionListener() {

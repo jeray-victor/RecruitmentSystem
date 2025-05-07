@@ -10,16 +10,16 @@ public class PartTimeStaffHire extends StaffHire {
     private String shifts;
     private boolean terminated;
 
-    //Constructor to initialize all attributes
+    //constructor to initialize all attributes
     public PartTimeStaffHire(int vacancyNumber, String designation, String jobType,
                              String staffName, String joiningDate, String qualification,
                              String appointedBy, boolean joined, int workingHour,
                              double wagesPerHour, String shifts) {
-        // super calls the StaffHire constructor to set parent attributes
+        //super calls the StaffHire constructor to set parent attributes
         super(vacancyNumber, designation, jobType, staffName, joiningDate,
                 qualification, appointedBy, joined);
 
-        // Initialize part-time staff specific attributes
+        //initialize part-time staff specific attributes
         this.workingHour = workingHour;
         this.wagesPerHour = wagesPerHour;
         this.shifts = shifts;
